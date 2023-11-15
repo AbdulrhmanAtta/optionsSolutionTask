@@ -1,0 +1,161 @@
+/* Add your styling here */
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#header {
+    text-align: center;
+    padding: 30px 0;
+    top: 0;
+    position: fixed;
+}
+
+#wrapper {
+    text-align: center;
+}
+
+
+h1,
+h4 {
+    color: #989898;
+}
+
+.question-container {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.question-container.active {
+    display: grid;
+    gap: 15px;
+    opacity: 1;
+}
+
+.question-container.fade-out {
+    opacity: 0;
+}
+
+.answers {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    /* Adjust the color based on your design */
+}
+
+/* Styling for the "How It Works" section */
+#howItWorks {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    /* Align text to the left */
+}
+
+#howItWorks ul {
+    list-style-position: inside;
+    /* Place the bullet points inside the list items */
+    text-align: center;
+    /* Center the text within the list items */
+}
+
+#howItWorks li {
+    text-align: left;
+    /* Align the text within list items to the left */
+}
+
+/* Styling for the footer */
+#footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.question-container {
+    margin-bottom: 20px;
+}
+
+#content {
+    padding-bottom: 100px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #3c3c3c;
+    /* Background color for the footer */
+    color: #fff;
+    /* Text color for the footer */
+    padding: 15px;
+    /* Add padding for better spacing */
+    text-align: center;
+    /* Center-align the text */
+}
+
+footer p {
+    margin: 0;
+    /* Remove default margin for paragraphs inside the footer */
+    font-size: 12px;
+}
+
+.btn {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.btn-alert {
+    width: 100px !important;
+    margin: 10px auto;
+    padding: 5px 10px
+}
+
+.close {
+    float: right;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    opacity: 1;
+}
+
+.modal-content {
+    position: absolute;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.3rem;
+    outline: 0;
+    margin: 0 auto;
+    width: 450px;
+    justify-content: center;
+    align-content: center;
+    top: 30%;
+    left: 30%;
+    height: 150px;
+}
+
+
+

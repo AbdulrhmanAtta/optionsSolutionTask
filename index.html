@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Home Pros Lead Form</title>
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Include the Google Places API script -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_n7m92d-ftFEY6SGmSqLYpg9apY-mUP0&libraries=places&callback=initAutocomplete" async defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="form-container">
+      <div id="header">
+        <h1>Help Protect Your Home with a New Security System</h1>
+        <h4>Quick and easy. Get matched with the best Home Security company in your area</h4>
+      </div>
+      <form id="leadForm" method="post" onsubmit="submitForm()">
+
+        <!-- STARTING QUESTIONS SECTION -->
+
+        <div class="question-container active" id="question1">
+          <label>1. What type of property is this system for?</label>
+          <div class="answers">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="ownedRadio" name="propertyType" value="Owned" class="custom-control-input"
+                required>
+              <label class="custom-control-label" for="ownedRadio">Owned</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="rentedRadio" name="propertyType" value="Rented" class="custom-control-input"
+                required>
+              <label class="custom-control-label" for="rentedRadio">Rented</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+        </div>
+
+
+        <div class="question-container" id="question2">
+          <label>2. What is your zip code?</label>
+          <div class="answers">
+              <input type="text" name="zipCode" placeholder="Zip Code" id="zip" required>
+              <div id="cityStateFields" style="display: none;">
+                  <input type="text" name="city" id="city" placeholder="City" required>
+                  <input type="text" name="state" id="state" placeholder="State" required>
+              </div>
+          </div>
+          <button type="button" class="btn btn-primary" id="nextButton">Next</button>
+      </div>
+
+        <div class="question-container" id="question3">
+          <label>3. What is your installation preference?</label>
+          <div class="answers">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="professionalRadio" name="installationPreference" value="professional"
+                class="custom-control-input" required>
+              <label class="custom-control-label" for="professionalRadio">Professional installation</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="selfRadio" name="installationPreference" value="self" class="custom-control-input"
+                required>
+              <label class="custom-control-label" for="selfRadio">Self installation</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="noPreferenceRadio" name="installationPreference" value="none"
+                class="custom-control-input" required>
+              <label class="custom-control-label" for="noPreferenceRadio">No preference</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <div class="question-container" id="question4">
+          <label>4. What home security features would you like to have?</label>
+          <div class="answers">
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" id="camerasCheckbox" name="securityFeatures" value="Cameras"
+                class="custom-control-input">
+              <label class="custom-control-label" for="camerasCheckbox">Cameras</label>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" id="motionSensorsCheckbox" name="securityFeatures" value="Motion Sensors"
+                class="custom-control-input">
+              <label class="custom-control-label" for="motionSensorsCheckbox">Motion Sensors</label>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" id="glassBreakCheckbox" name="securityFeatures" value="Glass break sensors"
+                class="custom-control-input">
+              <label class="custom-control-label" for="glassBreakCheckbox">Glass break sensors</label>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" id="doorbellCamerasCheckbox" name="securityFeatures" value="Doorbell Cameras"
+                class="custom-control-input">
+              <label class="custom-control-label" for="doorbellCamerasCheckbox">Doorbell Cameras</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <div class="question-container" id="question5">
+          <label>5. What kind of System do you need?</label>
+          <div class="answers">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="burglarRadio" name="systemType" value="burglar" class="custom-control-input">
+              <label class="custom-control-label" for="burglarRadio">Burglar / intrusion</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="fireDetectionRadio" name="systemType" value="fire" class="custom-control-input">
+              <label class="custom-control-label" for="fireDetectionRadio">Fire detection</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="bothRadio" name="systemType" value="both" class="custom-control-input">
+              <label class="custom-control-label" for="bothRadio">Both burglar and fire detection</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <div class="question-container" id="question6">
+          <label>6. How many entrances exist?</label>
+          <div class="answers">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="entrances1" name="entrances" value="1" class="custom-control-input" required>
+              <label class="custom-control-label" for="entrances1">1</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="entrances2-4" name="entrances" value="2-4" class="custom-control-input" required>
+              <label class="custom-control-label" for="entrances2-4">2-4</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="entrances5" name="entrances" value="5" class="custom-control-input" required>
+              <label class="custom-control-label" for="entrances5">5</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="entrancesMore" name="entrances" value="6+" class="custom-control-input" required>
+              <label class="custom-control-label" for="entrancesMore">More than 5</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <div class="question-container" id="question7">
+          <label>7. What is your address?</label>
+          <div class="answers">
+            <!-- Add an input field for the address with the "autocomplete" attribute -->
+            <input type="text" id="address" name="address" placeholder="Enter your address" autocomplete="on" required>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <div class="question-container" id="question8">
+          <label>8. Your Details</label>
+          <div class="answers">
+            <input type="text" id="firstName" placeholder="First Name" name="firstName" class="form-control" required><br>
+            <input type="text" placeholder="Last Name" id="lastName" name="lastName" class="form-control" required><br>
+          </div>
+          <div class="answers">
+            <input type="email" placeholder="Email Address"  id="email" name="email" class="form-control" required>
+            <div id="emailError" style="color: red;"></div>
+            <input type="tel" id="phone" placeholder="Phone Number" name="phone" class="form-control" required>
+            <div id="phoneError" style="color: red;"></div>
+          </div>
+          <button type="button" onclick="submitForm()" class="btn btn-success">Submit</button>
+        </div>
+
+        <!-- ENDING QUESTIONS SECTION -->
+
+        <!-- Model Section -->
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <p id="modalMessage"></p>
+            <span class="close btn btn-alert btn-warning">Ok</span>
+          </div>
+        </div>
+
+      </form>
+      <!-- How It Works Section -->
+      <div id="content">
+        <div id="howItWorks">
+          <h2>How It Works</h2>
+          <p>
+            Safe Home Pros services hundreds of brands and provides trusted information for millions of individuals
+            across the United States.
+          </p>
+          <ul>
+            <li>Easily compare competitors</li>
+            <li>Strengthen your consumer awareness</li>
+            <li>Find the best rates for your financial needs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      Safe Home Pros offers rankings and reviews for the top companies in many verticals across different industries in
+      the United States.
+      We strive to remain both objective and informative, with the goal of giving our users the best experience.<br>
+      The opinions and the prices we represent on our site(s) are subject to change without notice.
+      We are an independent, advertising-supported comparison service. The offers that appear on this site are from
+      companies that compensate us.
+      This compensation may impact how and where products appear on this site, including, for example, the order in
+      which they may appear within the listing categories. <br>Copyright © 2023
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
